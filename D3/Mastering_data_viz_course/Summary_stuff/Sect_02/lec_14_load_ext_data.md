@@ -22,4 +22,21 @@ d3.csv("File_Path", function(data) {
 *NB: Unfortunately, this course was originally written in v4 so we'll have to catch it ourselves.*
 
 
+### Ex: 
 
+  Check out `main.js` in `Provided/02/2.07/js/main.js`.
+  Data is often read in as a text file. So we need to convert the elements from a string to an integer.
+```js
+d3.tsv("data/ages.tsv").then(function(data){
+    data.forEach(function(d){
+        d.age = +d.age; // converts string to integer
+    });
+})
+```
+
+  Then we should take our data and apply it to our circles.
+
+```js
+```
+
+  
