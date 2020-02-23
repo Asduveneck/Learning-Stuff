@@ -28,3 +28,19 @@ This lecture corresponds with
   rect.attr("x", 25)
     .attr("y", 0)
 ```
+
+### How do we chain?
+
+  Each intermediary step returns an object. So we can chain these methods to each other.
+```js
+let svg = d3.select("#chart-area").append("svg")
+  .attr("width", 400)
+  .attr("height", 400);
+
+let circle = svg.append("circle")
+  .attr("cx", 200)
+  .attr("cy", 200)
+  .attr("r", 100)
+  .attr("fill", "blue")
+
+```
