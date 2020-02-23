@@ -10,25 +10,11 @@ var svg = d3.select("#chart-area")
     .attr("height", "400");
 
 d3.json("data/buildings.json").then(function(data){
+    let rects = d3.selectAll("rect")
+      .data(data);
+    console.log("in promise. data is type ", typeof data);
+    console.log("data:\n", data)
+    data.forEach( d => {d.height = +d.height})
+    console.log("modified data. Test:")
     console.log(data);
-
-    data.forEach(function(d) {
-        d.height = +d.height;
-    });
-
-    var rects = svg.selectAll("rect")
-            .data(data)
-        .enter().append("rect")
-            .attr("y", 0)
-            .attr("x", function(d, i){
-                return (i * 60);
-            })
-            .attr("width", 40)
-            .attr("height", function(d){
-                return d.height;
-            })
-            .attr("fill", function(d) {
-                return "grey";
-            });
-
-})
+}).catch(error => console.log("Bug in promise at line 12.\nError:", error))
