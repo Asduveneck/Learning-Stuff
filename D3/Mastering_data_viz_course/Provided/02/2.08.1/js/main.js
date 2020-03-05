@@ -12,7 +12,7 @@ var svg = d3.select("#chart-area")
 d3.json("data/buildings.json").then(function(data){
     data.forEach( d => {d.height = +d.height});
 
-    let rects = d3.selectAll("rect")
+    let rects = svg.selectAll("rect")
       .data(data);
 
     rects.enter().append("rect")
