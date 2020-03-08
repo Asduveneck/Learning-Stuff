@@ -21,8 +21,14 @@ d3.json("data/buildings.json").then(function(data){
         .domain(["Burj Khalifa", "Shanghai Tower", 
             "Abraj Al-Bait Clock Tower", "Ping An Finance Centre", 
             "Lotte World Tower", "One World Trade Center",
-            "Guangzhou CTF Finance Center"])
-        .range([0, 400])
+            "Guangzhou CTF Finance Center"]) // Array of names to match data
+        /* In 3.07, I guess next lecture, you can avoid hard coding this via:
+        data.map(function(d){
+            return d.name;
+        })) to create this array from the data...
+
+        */
+        .range([0, 400]) // reflect size of svg canvas
         .paddingInner(0.3)
         .paddingOuter(0.3);
 

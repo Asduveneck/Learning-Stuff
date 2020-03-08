@@ -37,3 +37,8 @@ let x = d3.scaleBand()
 
 
 ```
+
+### Building example
+
+See 3.06 main.js file . 3.07 does a better job by showing you how to avoid hard coding in the array of names.
+
