@@ -3,14 +3,19 @@
 *    Mastering Data Visualization with D3.js
 *    3.9 - Margins and groups
 */
+// Defining Margin and width and height as constants up top to make it easier
+// to maintain.
 
+// define POJO to store our margins
 var margin = { left:100, right:10, top:10, bottom:100 };
-
+// defining width/height of the graph itself. We don't include our margin because 
+// that space is needed for labels/axes
 var width = 600 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+    height = 400 - margin.top - margin.bottom; // 
 
 var g = d3.select("#chart-area")
     .append("svg")
+        // size of our SVG canvas needs to include the margins
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
     .append("g")
