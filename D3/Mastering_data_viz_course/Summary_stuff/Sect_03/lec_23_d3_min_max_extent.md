@@ -72,3 +72,6 @@ let x = d3.scaleBand()
   .paddingOuter(0.3);
 
 ```
+
+### Detailed code
+See main.js in 3.07

@@ -25,7 +25,10 @@ d3.json("data/buildings.json").then(function(data){
         .paddingOuter(0.3);
 
     var y = d3.scaleLinear()
-        .domain([0, d3.max(data, function(d){
+    /*  For our range, we still want our lowest value to be 0.
+        We only want our max to respond to the data.
+    */
+        .domain([0, d3.max(data, function(d){ 
             return d.height;
         })])
         .range([0, 400]);
