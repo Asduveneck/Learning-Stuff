@@ -69,3 +69,79 @@ d3.axisBottom(x)
   **NB:**If you use `tickValues` and `tickFormat`, d3 will take your tick values and pass them into `tickFormat`.
 
 ### Ex Code: 3.10
+
+#### First we need to create our axis
+  We first need to create a variable for our X Axis. (line 60)
+  Our y axis doesn't need to be transformed; only our x axis. (~3:37)
+
+```js
+var xAxisCall = d3.axisBottom(x); 
+g.append("g")
+    .attr("class", "x axis")
+    .attr("transform", "translate(0, " + height + ")") // Move from top to bottom
+    .call(xAxisCall) // invoke our x axis
+
+var yAxisCall = d3.axisLeft(y) // line 72 in 3.10
+g.append("g")
+    .attr("class", "y-axis")
+    .call(yAxisCall);
+```
+
+#### Next we need to adjust our x axis text labels to not overlap (~4:45)
+
+First, we grab all the text generated from our call on `d3.axisBottom(x)`:
+```js
+var xAxisCall = d3.axisBottom(x); 
+g.append("g")
+    .attr("class", "x axis")
+    .attr("transform", "translate(0, " + height + ")") // Move from top to bottom
+    .call(xAxisCall) // invoke our x axis
+.selectAll("text")
+    .attr("y", "10")
+    .attr("x", "-5")
+    .attr("text-anchor", "end")
+    .attr("transform", "rotate(-40)");
+```
+
+  And then we chain on various attributes to have better control over our labels (such as rotating)
+
+#### Let's demonstrate adjusting ticks for the y axis:
+
+```js
+var yAxisCall = d3.axisLeft(y)
+    .ticks(3) // specify 3 ticks
+    .tickFormat(function(d){
+        return d + "m"; // Add the letter m to the end of each string (m for meter)
+    });
+g.append("g") // Rest we've seen before
+    .attr("class", "y-axis")
+    .call(yAxisCall);
+```
+
+#### Let's add a labels to our Axes 
+Code starts at line 20 in `3.10 main.js`.
+
+Our canvas (w/ margins), is defined and saved as a group `g`. (line 12).
+
+**X Label:**
+```js
+g.append("text") // Add some text
+    .attr("class", "x axis-label")
+    .attr("x", width / 2) // position text halfway through
+    .attr("y", height + 140) // push it to the bottom
+    .attr("font-size", "20px")
+    .attr("text-anchor", "middle") // anchor point in middle to center text
+    .text("The word's tallest buildings"); // text to display
+```
+**Y Label:**
+```js
+g.append("text")
+    .attr("class", "y axis-label")
+    .attr("x", - (height / 2)) // NB: SEE BELOW
+    .attr("y", -60)
+    .attr("font-size", "20px")
+    .attr("text-anchor", "middle")
+    .attr("transform", "rotate(-90)") // Rotate to make vertical
+    .text("Height (m)");
+```
+**NB:** Because we rotate the same time we set these values, we reverse our x and y positions.
