@@ -25,4 +25,47 @@ Afterwards, we use the `.call()` method to generate the axis.
 
 #### Customizing the ticks
 
+##### Size:
+There are 3 methods to adjust tick sizes:
+  * `tickSizeOuter("VALUE")`: which affects the outermost ticks only
+  * `tickSizeInner("VALUE")`: which affects the inner ticks only
+  * `tickSize("VALUE")`: which affects ALL ticks
 
+When we chain these methods, the stuff further down the chain overrides the previous.
+```js
+d3.axisBottom(x)
+  .tickSizeInner("VALUE A") // initially sets inner tick sizes
+  .tickSize("VALUE B");  // Overwrites tickSizeInner!
+```
+
+##### How many ticks?
+```js
+d3.axisBottom(x)
+  .ticks(10);
+```
+D3 places the # of ticks based upon some algorithm, so we won't always get the # we specify
+
+##### Text Formatting?
+
+To specify floating point with no decimals:
+```js
+d3.axisBottom(x)
+  .tickFormat(d3.format(",.0f"));
+```
+Custom formatting:
+
+```js
+d3.axisBottom(x)
+  .tickFormat( (d) => "TICK TEXT"  );
+```
+
+##### Specifying explicit values
+
+```js
+d3.axisBottom(x)
+  .tickValues( [1, 2, 3, 5, 8, 13, 21] )
+```
+
+  **NB:**If you use `tickValues` and `tickFormat`, d3 will take your tick values and pass them into `tickFormat`.
+
+### Ex Code: 3.10
