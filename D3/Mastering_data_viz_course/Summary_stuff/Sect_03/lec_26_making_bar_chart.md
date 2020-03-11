@@ -37,3 +37,8 @@ var y = d3.scaleLinear()
   ![Broken Bars](Screenshots/lec_26_bar_broke.png)
 
   Here, our tallest bar has a height of 0.
+  ![Broken Bars](Screenshots/lec_26_bar_broke2.png)
+
+  So if we take the difference we should be good.
+
+### 3.11 Code Example
