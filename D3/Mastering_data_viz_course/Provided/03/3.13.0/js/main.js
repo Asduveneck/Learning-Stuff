@@ -5,7 +5,7 @@
 */
 
 // Setting Margins
-let margin = { lft: 60, rht: 20, top: 10, bot: 30 };
+let margin = { lft: 60, rht: 20, top: 10, bot: 50 };
 margin.hz = margin.lft + margin.rht;
 margin.vt = margin.top + margin.bot;
 
@@ -20,6 +20,26 @@ let g = d3.select("#chart-area")
     .attr("height", `${height + margin.vt}`)
   .append("g") // shift by margin for scale and labels
     .attr("transform", `translate(${margin.lft}, ${margin.top})`);
+
+// label
+g.append("text")
+  .attr("class", "x-axis label")
+  .attr("x", width / 2)
+  .attr("y", height + margin.top + margin.bot/2)
+  .attr("font-size", "50px")
+  .attr("text-anchor", "middle")
+  .text("Month");
+
+g.append("text")
+  .attr("class", "y-axis label")
+  .attr("x", -height/2)
+  .attr("y", -margin.lft*.9)
+  .attr("font-size", "50px")
+  .attr("text-anchor", "middle")
+  .attr("transform", "rotate(-90)")
+  .text("Revenue");
+
+
 
 d3.json("data/revenues.json").then( (data) => {
   // console.log(data) // month , revenue, profit
@@ -62,7 +82,7 @@ d3.json("data/revenues.json").then( (data) => {
       .append("rect")
         .attr("y", (d) => y(d.revenue) )
         .attr("x", (d) => x(d.month) )
-        .attr("width",  x.bandwidth) // TODO: define the xscale bandwidth later
-        .attr("height", (d) => height - y(d.revenue))
+        .attr("width",  x.bandwidth )
+        .attr("height", (d) => height - y(d.revenue) )
         .attr("fill", "grey")
 });
