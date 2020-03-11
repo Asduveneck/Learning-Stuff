@@ -5,7 +5,7 @@
 */
 
 // Setting Margins
-let margin = { lft: 40, rht: 20, top: 10, bot: 30 };
+let margin = { lft: 60, rht: 20, top: 10, bot: 30 };
 margin.hz = margin.lft + margin.rht;
 margin.vt = margin.top + margin.bot;
 
@@ -23,21 +23,38 @@ let g = d3.select("#chart-area")
 
 d3.json("data/revenues.json").then( (data) => {
   // console.log(data) // month , revenue, profit
+  // data:
   data.forEach( (d) => {
     d.revenue = +d.revenue; // convert to string
     d.profit = +d.profit; // convert to string
   })
-
+  // X and Y Scales
   let x = d3.scaleBand()
     .domain(data.map( (d) => d.month))
     .range([0, width])
-    .paddingInner(0.3);
+    .paddingInner(0.3)
+    .paddingOuter(0.1)
 
   let y = d3.scaleLinear()
     .domain([0, d3.max(data, (d) => d.revenue)])
     .range([height, 0]);
 
+  // X amd Y axes
+  let xAxisCall = d3.axisBottom(x);
+  g.append("g")
+    .attr("class", "x-axis")
+    .attr("transform", `translate(0, ${height})`)
+    .call(xAxisCall)
+    .selectAll("text")
+      .attr("text-anchor", "start");
+    
+  let yAxisCall = d3.axisLeft(y)
+    .tickFormat( (d) => "$" + d )
+  g.append("g")
+    .attr("class", "y-axis")
+    .call(yAxisCall);
 
+  // Bars:
   let rects = g.selectAll("rect")
     .data(data);
   
@@ -45,7 +62,7 @@ d3.json("data/revenues.json").then( (data) => {
       .append("rect")
         .attr("y", (d) => y(d.revenue) )
         .attr("x", (d) => x(d.month) )
-        .attr("width", "15") // TODO: define the xscale bandwidth later
+        .attr("width",  x.bandwidth) // TODO: define the xscale bandwidth later
         .attr("height", (d) => height - y(d.revenue))
         .attr("fill", "grey")
 });
