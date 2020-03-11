@@ -37,4 +37,15 @@ d3.json("data/revenues.json").then( (data) => {
     .domain([0, d3.max(data, (d) => d.revenue)])
     .range([height, 0]);
 
+
+  let rects = g.selectAll("rect")
+    .data(data);
+  
+    rects.enter()
+      .append("rect")
+        .attr("y", (d) => y(d.revenue) )
+        .attr("x", (d) => x(d.month) )
+        .attr("width", "15") // TODO: define the xscale bandwidth later
+        .attr("height", (d) => height - y(d.revenue))
+        .attr("fill", "grey")
 });
