@@ -6,6 +6,7 @@
   The d3 update pattern will be used in every viz from now on, and it'll come with practice/experience.
 
 ### How does the d3 update pattern work?
+<!-- FINDME: NB: This is probably one of the most important lectures in this series -->
 
 First, we need to see what's going on in the simplest case when we join data. Back in section 2:
 ```js
