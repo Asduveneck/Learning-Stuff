@@ -24,7 +24,30 @@ Summary of visualizations with Tufte's principles
   * Data to Ink ratio can measure chart junk. Focus on high data to ink.
 
 ### 32: Subjectivity in Design
+
+  * What makes a great visualization?
+  * Is chart junk a bad thing? Some chart junk others argue are necessary
+  * Examples of good visualizations that don't follow Tufte's principles
+
+What are goals for viz?
+  * Grab users attention
+  * Encourage further exploration
+  * Build new and interesting types of visualizations
+
+Ex: histogram of military spending. Histograms are harder to understand than a barchart. And each histogram is a bullet... lots of chart junk
+
+Ex: Node link: interactive.
+
+Design is still subjective. 
+
 ### 33: Activity: critiquing visualizations
+
+1. Visualization of coffee: Eye catching, but I don't know what hte bars or colors even mean.
+2. Lancaster Bingo. A lot of negative space. I love dashboards and they're clear and have a good amount of data to ink. I like the color scheme too. Issue is the pie chart in the middle
+3. Rap vocab, indifferent towards. I get that it's a scatter plot at first, which is interesting because each point is represented by a face. I guess that is somewhat clarifying, but also adds a lot of distraction (to me)
+
+As an aside, I just learned about https://pudding.cool/2018/12/3d-cities-story/ and https://pudding.cool/ which is a pretty cool site. 
+
 ### 34: The design toolkit
 ### 35: Intro to sketching
 ### 36: Making sketches
