@@ -85,8 +85,26 @@ For ordinal data, area or intensity are ideal.
 
 ### 35: Intro to sketching
 
+  Sketching is useful to get an ouitline/idea going.
 
+  Why do we need sketches?
+
+  * Figure out how site should look before diving into programming
+  * Think through different options of communicating data
+  * Communicating abstract ideas to clients and colleagues
+
+Rules for sketches?
+
+  * Make them as disposable as possible to keep an open mind. Scratch paper
+  * Make them big, at least half a side of an A4 page. Bold as possible so everything is clear
+  * Get the general point across ; don't worry about details, don't draw lines with rulers or focus on scale.
+
+  No more than 5 minutes for initial sketch
 
 ### 36: Making sketches
+
+https://www.udemy.com/course/masteringd3js/learn/lecture/9441206#notes
+
 ### 37: Bootstrap grid system
+
 ### 38: Summary
