@@ -107,4 +107,15 @@ https://www.udemy.com/course/masteringd3js/learn/lecture/9441206#notes
 
 ### 37: Bootstrap grid system
 
+
+  By splitting things up into sections, we can define how wide or tall these sections are.
+  * Everything needs to be surrounded w/ a class `container` div. Bootstrap sizes divs according to classes
+  * Use `.row` for different rows on the page. We can then add `.col` inside the rows.
+
+We can also add prefixes for classes to make it responsive.
+
+![Class Names](Screenshots/l37_resp_screen.png)
+
+  We can also use offsets to balance it out.
+
 ### 38: Summary
