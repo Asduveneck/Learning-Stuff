@@ -49,7 +49,44 @@ Design is still subjective.
 As an aside, I just learned about https://pudding.cool/2018/12/3d-cities-story/ and https://pudding.cool/ which is a pretty cool site. 
 
 ### 34: The design toolkit
+
+Questions for Design:
+
+  * How do we show the data we have in the best way?
+  * When should we use color? Color scheme selection
+  * How do we deal with different types of data?
+
+How do we think about available options for displaying our data?
+
+Jacque Bertin proposed:
+  * position, size, grey value, texture, color, orientation, and shape to convey different data.
+
+Ex
+  Length? Easy
+  Slope/steaper? a bit harder than length
+  Circle area: 5x. Challenging/area
+  Darkness? 2x. A bit easier.
+  Using color scale, how much? It's harder when colors are diverging
+
+So in short, some channels are better at expressing some data.
+
+Every data falls into quantitative (numerical), categorical (categories), ordinal (rankings)
+
+What are some recommendations on visualizing different data?
+
+![Visualization per data](Screenshots/l34_viz_data_types.png)
+
+For ordinal data, area or intensity are ideal.
+
+#### How to use colors?
+  * Don't use over 5-8 colors. Don't use diverging color scale for quantitative dat
+  * Also, consider color-blind users (~5% of the population)
+  * colorbrewer2 is useful
+
 ### 35: Intro to sketching
+
+
+
 ### 36: Making sketches
 ### 37: Bootstrap grid system
 ### 38: Summary
