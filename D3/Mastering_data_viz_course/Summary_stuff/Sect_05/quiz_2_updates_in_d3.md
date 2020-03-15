@@ -5,3 +5,9 @@ Question 2: How to join data?
   `.selectAll('attribute like circle or rect').data(data)`
 Question 3:
   To remove data no longer being used, it's as simple as calling `.exit().remove()` on the thing we're trying to remove.
+
+Question 4:
+  To update our data or elements already present, we just take that object or selection group, and specify the attributes. Hence: `circles.attr( 'r' ... )`
+
+Question 5:
+  Lastly, to add more data with an update, we can just call `.enter().append().attr()...` as before...
