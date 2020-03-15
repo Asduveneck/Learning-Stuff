@@ -16,19 +16,19 @@ var g = d3.select("#chart-area")
     .append("g")
         .attr("transform", "translate(" + margin.left + ", " + margin.top + ")");
 
-var xAxisGroup = g.append("g")
+var xAxisGroup = g.append("g") // P2
     .attr("class", "x axis")
     .attr("transform", "translate(0," + height +")");
 
-var yAxisGroup = g.append("g")
+var yAxisGroup = g.append("g") // P2
     .attr("class", "y axis");
 
-// X Scale
+// X Scale // P1
 var x = d3.scaleBand()
     .range([0, width])
     .padding(0.2);
 
-// Y Scale
+// Y Scale // P1
 var y = d3.scaleLinear()
     .range([height, 0]);
 
@@ -61,10 +61,13 @@ d3.json("data/revenues.json").then(function(data){
         update(data)
     }, 1000);
 
-    // Run the vis for the first time
+    // P3: Run the vis for the first time
     update(data);
 });
 
+// Part 1:  1:44
+// scales code doesn't go in, but it's the domain that responds to data.
+// so we keep our domain in the x axis, but keep the scales on the outside, so long as we only use them after the domain is set.
 function update(data) {
     x.domain(data.map(function(d){ return d.month }));
     y.domain([0, d3.max(data, function(d) { return d.revenue })])
@@ -78,7 +81,7 @@ function update(data) {
         .tickFormat(function(d){ return "$" + d; });
     yAxisGroup.call(yAxisCall);
 
-/*    // Bars
+/*    // Bars We'll add in next section
     var rects = g.selectAll("rect")
         .data(data)
         
