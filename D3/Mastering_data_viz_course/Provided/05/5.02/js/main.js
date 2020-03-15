@@ -80,7 +80,7 @@ d3.json("data/revenues.json").then(function(data){
 
     d3.interval(function(){
         console.log("Hello World");
-    }, 1000);
+    }, 1000); // 1000ms between each second.
 });
 
 
