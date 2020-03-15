@@ -78,11 +78,11 @@ text.enter().append("text") // these apply to only new elements. Using append to
 
 ```js
 // Selects... nothing?
-let rects = svg.selectAll("rect")
-  .data(data)
+let rects = svg.selectAll("rect") // Selection that has no rectangles
+  .data(data) // but since we pass in an array of data, we have some selectors
 
 // Magic:
-rects.enter().append("rect")
+rects.enter().append("rect") // Accessing the groups via enter(), and adding `rects` via the append.
   .attr("y", (d) => y(d.revenue) )
   .attr("x", (d) => x(d.month) )
   .attr("height", (d) => height - y(d.revenue) )
@@ -90,3 +90,12 @@ rects.enter().append("rect")
   .attr("fill", "grey")
 
 ```
+
+### Ex: Main.js Again
+
+[See](https://github.com/Asduveneck/Learning-Stuff/blob/6cd9c808ca66d6d2eacf9647edd0a4441927c426/D3/Mastering_data_viz_course/Provided/05/5.04/js/main.js): `Mastering_data_viz_course/Provided/05/5.04/js/main.js`
+
+P1 Join:
+P2: Exit
+P3: Update part: Set attributes. Same code as enter, but we don't need to set the fill again
+P4: Enter: same as before.
