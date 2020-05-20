@@ -64,7 +64,7 @@ Portss like 80 or 443.
   VMWare, virtual box, etc. Once you run them, you can install multiple instances of Linux, mac, etc.
   Install multiple instances of distinct computers, ecah with own user/password.
   They share the same hardware, but different software. You still run into resource contention.
-  But what do you gain with a DPS other than a web host? You can keep things up to date. And if someone else's server is compromised, yours is NOT. Webhosts share servers, so one getting compromised compromises all.
+  But what do you gain with a VPS other than a web host? You can keep things up to date. And if someone else's server is compromised, yours is NOT. Webhosts share servers, so one getting compromised compromises all.
 
 
 ## Hardware set up 
@@ -104,4 +104,4 @@ You can see a lot of network activity to see all of the http requests that just 
 
 DNS
 Web server, getting your own domain name
-HTML tools, and a form....
+HTML tools, and a form...
