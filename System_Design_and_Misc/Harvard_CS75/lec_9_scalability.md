@@ -2,6 +2,22 @@
 
 [source](https://www.youtube.com/watch?v=-W9F__D3oY4)
 
+## Someone else's table of contents (on youtube)
+
+horizontal scaling (13:00 - 21:00)
+load balancing & caching (21:00 – 29:00)
+shared session state (29:00 – 34:00)
+RAID (36:00 – 40:00)
+shared storage tech (42:00)
+database replication (43:00)
+load balancing tech (44:00 – 45:00)
+session affinity (46:00 – 51:00)
+in-memory caching (59:00 – 1:00)
+data replication – active:passive (1:11 - 1:14), active:active (1:16 - 1:21)
+partitioning (1:21 – 1:34)
+data center redundancy (1:33 – 1:39)
+security (1:39 – 1:44)
+
 ## Web hosts and VPses: Where do you put your site online?
 
 ### What features do you want to look for in a web host?
@@ -282,9 +298,61 @@ So now look at all the things we've wired up now,
 
 ### What can break? (~1:19)
 
+  Look for bottlenecks. Load balancers.
+  For 100k, you can get 2 of them. Active-Active . We have a pair of load balancers listening to connections, which receive packets, and relay to backend servers.
+  So if one ever stops sending a heartbeat (a packet), we assume the other is dead.
+  Active-passive. If the active guy dies, passive promotes himself, and takes over that IP address.
 
+  **How it's implemented isn't as implemented, but if we have a lot of servers, but it may all be naught if the single load balancer dies.**
 
+## Taking it a step further: Partitioning and multiple load balancers! (1:21:40)
 
+  FB took advantage of this. Earliest partitioning: A different server per school.
+     MIT users go one place, Harvard Users go to their server.
+
+### It's cheap to scale, and convenient since partitioned. What's the catch?
+
+  What if we want interaction between schools? Harvard user w/ stanford user?
+  Some features before you could only do in your state.
+
+  We could do something like sharding in databases. A-M users in one, rest in other server.
+
+  We can still have master-slave relationship, high availability. And the servers do this based upon user info.
+  High-availability, refers to some relationship between a pair of servers checking heart beats.
+  (before 1:24:00)
+
+## Let's build a network (1:24:59)
+
+### Say we have 2 servers, a load balancer, on cloud; how do we implement sticky sessions? (1 db per server)
+
+  Using only a sticky session, no shared state, how can I ensure shared state.
+  The LB can insert can insert a cookie when getting a response to let you know which server you're on.
+  If we have a db per server.
+
+  If you do something persistent, but if the cookies expire, what happens if the cookies lose our data?
+    If we had the load balance shard by username, we won't have an issue. 
+
+  But assuming we have a fragile point, we can still break.
+
+  1 db per server is bad. We need some cross connect. But that's going to get ugly as we try to scale.
+
+  A LB based on application layer is difficult between server to db because db communicate in binary. Can't interpret http (so that's why that's done further up)
+  We need something better.
+
+  So what do we need? We need network switches. Cross connecting. But can create some issues.
+
+### What happens if the building burns down?
+  
+  We need internet connecting to the outside.
+  If we have 2 data centers, how do we distribute load.
+  We can do load balancing at the DNS level.
+  Geography-based load balancing.
+
+  So we should have TCP 80 or 443
+  or SSL VPN. 
+
+  From LB to web servers, we should offload SSL to LB. Internet to LB, but everything is unencrypted.
+  This way we can put SSL encryptions there. TCP 80 to the web servers.
 
 
 
