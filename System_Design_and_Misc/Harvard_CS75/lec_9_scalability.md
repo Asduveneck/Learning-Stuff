@@ -247,6 +247,44 @@ Hardware: Barracudo, Cisco, Citrix... lecturer says overpriced.
   
 #### Replication: Master-Slagvee (1:11:29)
 
+  You read and write from Master database. Master db has network connections to multiple slaves.
+  All the slaves have to copy or mirror your Master db.
+  If DB 1 dies, you have 3 backups. No backups. You can now have the master again while you fix the broken.
+  You could do this automatically.
+
+##### How could FB have taken advantage of this topology? (1:13:39)
+
+   Load balance across the servers.
+   How can we adapt more read-heavy topology?
+   For read-heavy websites, you can write so that any `Select` statements go to your slaves, while any `Write` requests go to your Master.
+   So your slaves can also balance read requests across them. 
+
+##### What's a fault with the slave layout still?
+
+  What if one dies? Some blip on the radar? Promoting a slave.
+  We have an issue with writes. It could have an issue with writing.
+
+  What if we had another master?
+
+#### Replication: Master-Master
+
+  Always write to 1, but query goes to 2. Or write across the two.
+  If we layed out the network, we can implement this in PHP code. So we build in some redundancy. 
+
+  1:17:45 We still have to route traffic there
+
+## Overview of Load Balancing + Replication: 1:17:50
+
+  We unite some web ideas and db ideas.
+  Multi-tiered service.
+  If we have 1 MySQL master, master has connection to slaves.
+So now look at all the things we've wired up now,
+
+### What can break? (~1:19)
+
+
+
+
 
 
 
