@@ -235,6 +235,19 @@ Hardware: Barracudo, Cisco, Citrix... lecturer says overpriced.
 
 ### MySql Optimization (1:08:03)
 
+  Storage Engine: Format for storing your data.
+  MyIsam: table locks.
+
+  InoDB: supports transactions. Has other properties. 
+  Transactions is 1, but 1, we hhave a memory engine, known as heap engine. Stored in RAM.
+  If we want to easily implement a cache with key value, we can implement stuff in cache.
+
+  Archive storage engine. Archive tables are automatically compressed. But slower to write.
+    They're useful for log files.
+  
+#### Replication: Master-Slagvee (1:11:29)
+
+
 
 
 
